@@ -5,6 +5,7 @@ import com.chuck.commonlib.view.CustomListView.OnRefreshLoadListenner;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.TextureView;
 import android.view.View;
@@ -17,11 +18,13 @@ public class CustomListViewActivity extends Activity implements OnRefreshLoadLis
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_custom_list_view);
 		
+		setContentView(R.layout.activity_custom_list_view);
 		CustomListView listView = (CustomListView)findViewById(R.id.custom_list_view);
 		listView.setAdapter(new CustomListAdapter());
 		listView.setOnRefreshLoadListenner(this);
+		listView.setNeedLoadMore(true);
+		
 	}
 	
 	class CustomListAdapter extends BaseAdapter{
